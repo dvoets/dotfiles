@@ -10,7 +10,7 @@ au FocusLost * :wa        " save on losing focus
 set encoding=utf-8
 set autoindent
 imap jj <Esc>
-set number        " Show line numbers
+set relativenumber        " Show line numbers
 
 "show a visual line under the cursor's current line 
 set cursorline
@@ -52,13 +52,14 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'davidhalter/jedi-vim'
 "Plugin 'klen/python-mode'
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
 " SuperTab plugin
 "Plugin 'ervandew/supertab'
 " Solarized
-Plugin  'altercation/vim-colors-solarized'
+"Plugin  'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
