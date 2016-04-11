@@ -5,19 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Useful alias
-alias pacman='sudo pacman'
-alias ..='cd ..'
-alias c.='cd ~'
-alias vi='vim'
-alias ls='ls --color=auto'
-alias ll='ls -alF --color=auto'
-alias l.='ls -d .* --color=auto'
-alias mkdir='mkdir -p'
-## Colorize the grep command output for ease of use (good for log files)##
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+source .alias
 
 PS1='[\u@\h \W]\$ '
 
@@ -29,3 +17,4 @@ export VISUAL="vim"
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+zsh

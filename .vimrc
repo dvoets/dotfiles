@@ -80,7 +80,8 @@ endif
 " Enable syntax highlighting
 syntax on
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme molokai
 
 " Clear search highlights 
 " http://www.vimbits.com/bits/21
@@ -142,6 +143,8 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" disable folding
+set nofoldenable    
 " vim-ariline + buffer settings
 " -----------------------------
 " Enable the list of buffers
@@ -180,7 +183,7 @@ let g:pymode_python = 'python3'
 " Use all functionalities
 "let g:pymode = 1
 " no vertical bar after 80 spaces
-let g:pymode_options_colorcolumn = 0
+let g:pymode_options_colorcolumn = 1
 "let g:pymode_virtualenv=1
 let g:pymode_rope = 0
 
