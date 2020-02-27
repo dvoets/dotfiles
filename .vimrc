@@ -1,6 +1,11 @@
 " ------------------- "
 " Basic configuration "
 " ------------------- "
+set hlsearch                      " highlight search occurrences
+set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+set wrapscan                      " searches wrap around the end of the fileet incsearch hlsearch
 
 set nu				" show number lines
 set nocompatible               	" ignore vi compatability
@@ -74,6 +79,28 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+
+" Clear search highlights 
+" http://www.vimbits.com/bits/21
+"noremap <silent><Leader>/ :nohls<CR>
+
+call plug#begin('~/.vim/plugged')
+
+
+" Plug 'davidhalter/jedi-vim'
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'hzchirs/vim-material'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+filetype plugin indent on    " required
+"let g:SuperTabDefaultCompletionType = "<Tab><c-x><c-u>"
+"call SuperTabSetDefaultCompletionType("<Tab><c-x><c-u>")
+
 " ------------------------------ "
 " Syntax and search highlighting "
 " ------------------------------ "
@@ -81,46 +108,8 @@ endif
 syntax on
 set background=dark
 "colorscheme solarized
-colorscheme molokai
-
-" Clear search highlights 
-" http://www.vimbits.com/bits/21
-"noremap <silent><Leader>/ :nohls<CR>
-
-" Vundle setup
-" ------------
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required! 
-Plugin 'VundleVim/Vundle.vim'
-
-" Bundles
-Plugin 'klen/python-mode'
-Plugin 'davidhalter/jedi-vim'
-"Plugin 'ervandew/supertab'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/nerdcommenter'
-"Bundle 'sjl/gundo.vim'
-"Bundle 'christoomey/vim-tmux-navigator'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'aperezdc/vim-template'
-"Bundle 'vim-pandoc/vim-pandoc'
-"Bundle 'plasticboy/vim-markdown'
-"Bundle 'airblade/vim-gitgutter'
-"Bundle 'chrisbra/csv.vim'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-"let g:SuperTabDefaultCompletionType = "<Tab><c-x><c-u>"
-"call SuperTabSetDefaultCompletionType("<Tab><c-x><c-u>")
+"colorscheme molokai
+colorscheme vim-material
 
 " Python options
 " --------------
@@ -152,6 +141,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme='material'
 " This allows buffers to be hidden if you've modified a buffer.
 " This is almost a must if you wish to use buffers in this way.
 set hidden
@@ -173,27 +163,42 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
+" unimpaired mappings
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+
+vmap s S
+
+nnoremap L $
+vnoremap L $
+nnoremap H ^
+vnoremap H ^
+" Copy until the end of the line
+nnoremap Y v$y
+vnoremap Y y$
+"noremap ; : "interfears with find next character
+
 " ---------------------"
 " Settings for plugins "
 " ---------------------"
 
 " Settings for vim-airline
 " Avoid conflic python-mode jedi-vim
-let g:pymode_python = 'python3'
+" let g:pymode_python = 'python3'
 " Use all functionalities
 "let g:pymode = 1
 " no vertical bar after 80 spaces
-let g:pymode_options_colorcolumn = 1
+" let g:pymode_options_colorcolumn = 1
 "let g:pymode_virtualenv=1
-let g:pymode_rope = 0
+" let g:pymode_rope = 0
 
 " Turn on the run code script
-let g:pymode_run = 1
+" let g:pymode_run = 1
 " Binds keys to run python code
-let g:pymode_run_bind = '<leader>e'
+" let g:pymode_run_bind = '<leader>e'
 
 " Turn on code completion support 
-let g:pymode_rope_completion = 0
+" let g:pymode_rope_completion = 0
 " Turn on autocompletion when typing a period
 "let g:pymode_rope_complete_on_dot = 1
 " Keymap for autocomplete

@@ -1,17 +1,10 @@
-
-#Bash alias
-alias pacman='sudo pacman'
-alias c='clear'
-alias yaourt='yaourt --noconfirm'
 alias ..='cd ..'
-alias c.='cd ~'
-alias vi='vim'
 alias ls='ls --color=auto'
 alias ll='ls -alF --color=auto'
 alias l.='ls -d .* --color=auto'
 alias mkdir='mkdir -p'
+
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-
