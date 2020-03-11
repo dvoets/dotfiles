@@ -122,6 +122,20 @@ alias -s {yml,yaml}=vim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#History setup 
+HISTFILE=$HOME/.zsh_history 
+HISTSIZE=5000 
+SAVEHIST=$HISTSIZ  
+
+setopt hist_ignore_all_dups # remove older duplicate entries from history 
+setopt hist_reduce_blanks # remove superfluous blanks from history items 
+setopt inc_append_history # save history entries as soon as they are entered 
+setopt share_history # share history between different instances of the shell 
+setopt auto_cd # cd by typing directory name if it's not a command 
+setopt correct_all # autocorrect commands 
+setopt auto_list # automatically list choices on ambiguous completion 
+setopt auto_menu # automatically use menu completion 
+setopt always_to_end # move cursor to end if word had one match
 
 source ~/.alias
 
@@ -138,10 +152,16 @@ compinit
 export NEXUS_BASE_URL=https://green-1-core-services.quantexa.com/nexus/repository 
 export NEXUS_BASE_URL_ANON=https://nx-anonymous:nx-anonymous@green-1-core-services.quantexa.com/nexus/repository 
 export NEXUS_PROXY=http://10.36.0.2:3128
+export GRADLE_USER_HOME=$HOME/.gradle
+export USER_HOME=$HOME
 
 # esc -> jj in vim-mode
 bindkey "jj" vi-cmd-mode
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

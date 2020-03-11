@@ -8,3 +8,7 @@ alias mkdir='mkdir -p'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+## Git alias extra to the git zsh plugin
+alias gau='git add -u'
+alias gcm='git commit -m'
