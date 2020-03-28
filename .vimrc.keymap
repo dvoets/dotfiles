@@ -1,1 +1,107 @@
-/mnt/c/Users/DaanVoets/.vimrc.keymap
+" Set space as leader
+let mapleader = ' '
+
+set hlsearch                      " highlight search occurrences
+set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+set wrapscan                      " searches wrap around the end of the fileet incsearch hlsearch
+
+" ?
+" set ignorecase smartcase
+set history=10000                 " keep x lines of command line history
+
+imap jj <Esc>
+set timeoutlen=1000
+
+set modeline                    " show what I'm doing
+
+"Easier split navigations - remap left and right, up and down
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+nnoremap <C-j> <C-W><C-H>
+nnoremap <C-k> <C-W><C-L>
+
+" Relative line number 
+set rnu
+
+" Show line number of cursor position
+set nu
+
+" Close file?
+nnoremap <leader>q :close<CR>
+
+
+" Select all text
+map <leader>a ggVG
+
+" don't overwrite register when pasting over selection
+vnoremap <leader>p "_dP
+"map <leader>p "_dP
+map <leader>d "_d
+
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" Custom bindings
+
+nnoremap <a-j> J
+nnoremap <c-,> $a, <Esc>J
+
+" clear search highlighting
+nnoremap <leader>/ :nohls<return><esc>
+
+" toggle chars at end of line
+nnoremap <leader>, mzA,<Esc>`z
+nnoremap <leader>; mzA;<Esc>`z
+nnoremap <leader>: mzA:<Esc>`z
+nnoremap <leader>) mzA)<Esc>`z
+nnoremap <leader>x mz$x`z
+nnoremap <leader>. @@
+" nmap <leader>m @@
+
+" remap so c-i and c-o
+" imap <C-r> <c-o>
+
+" Indent everything
+noremap <leader>I mzggvG=`z
+
+" Indent the current line
+noremap <leader>i v=
+
+" Block down/up
+noremap  <c-f> <c-d>
+noremap  <c-b> <c-u>
+
+" key bindings for quickly moving between tabs
+nnoremap J gT
+nnoremap K gt
+
+" easy system clipboard copy/paste
+noremap <leader>y "+y
+voremap <leader>y "+y
+noremap <leader>yy "+yy
+voremap <leader>yy "+yy
+noremap <leader>Y v$"+y
+voremap <leader>+ "+P
+
+" unimpaired mappings
+nnoremap [<space> O<esc>j
+nnoremap ]<space> o<esc>k
+
+vmap s S
+
+nnoremap L $
+vnoremap L $
+nnoremap H ^
+vnoremap H ^
+" Copy until the end of the line
+nnoremap Y v$y
+vnoremap Y y$
+"noremap ; : "interfears with find next character
+
+" always yank to sytem clipboard
+" set clipboard=unnamedplus
