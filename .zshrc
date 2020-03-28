@@ -154,6 +154,7 @@ export NEXUS_BASE_URL_ANON=https://nx-anonymous:nx-anonymous@green-1-core-servic
 export NEXUS_PROXY=http://10.36.0.2:3128
 export GRADLE_USER_HOME=$HOME/.gradle
 export USER_HOME=$HOME
+export PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub )"
 
 # esc -> jj in vim-mode
 bindkey "jj" vi-cmd-mode
@@ -165,3 +166,9 @@ export NVM_DIR="$HOME/.nvm"
 #
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/quantexa/google-cloud-sdk/path.zsh.inc' ]; then . '/home/quantexa/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/quantexa/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/quantexa/google-cloud-sdk/completion.zsh.inc'; fi
+source dataprocFuncs.sh
